@@ -22,8 +22,8 @@ export class AppModule {
     consumer
       .apply(AuthMiddleware)
       .forRoutes(
-        { path: 'api/v1/movies', method: RequestMethod.GET },
-        { path: 'api/v1/movies', method: RequestMethod.POST }
+        { path: '/api/v1/*', method: RequestMethod.GET },
+        { path: '/api/v1/*', method: RequestMethod.POST }
       )
         
 }
