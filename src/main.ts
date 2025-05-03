@@ -11,8 +11,11 @@ async function bootstrap() {
   app.use(compression());
   app.use(bodyParser.json({limit:'10mb'}));
   app.enableCors({
-    methods:'GET,POST'
-  })
+    origin: '*',  // Allow all origins (not recommended for production)
+    methods: 'GET,POST',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true
+  });
   app.useGlobalInterceptors(new TransformInterceptor())
   await app.listen(process.env.PORT ?? 3000);
 }
