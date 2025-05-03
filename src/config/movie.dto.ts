@@ -1,4 +1,4 @@
-import { IsString ,IsOptional} from 'class-validator';
+import { IsString , IsNumber,IsOptional} from 'class-validator';
 
 export class MovieDto {
     @IsString()
@@ -6,6 +6,15 @@ export class MovieDto {
 
     @IsString()
     movie_name: string;
+
+    @IsString()
+    website:string
+
+    @IsString()
+    duration:string
+    
+    @IsString()
+    thumbnail:string
 }
 
 export class fetchMovie {

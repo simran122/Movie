@@ -12,6 +12,15 @@ export class Movie{
 
     @Prop({required:true})
     movie_name:string
+
+    @Prop({})
+    website:string
+
+    @Prop({})
+    duration:string
+    
+    @Prop({})
+    thumbnail:string
 }
 
 export const MovieSchema = SchemaFactory.createForClass(Movie);
