@@ -7,8 +7,11 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install the application dependencies
-RUN npm install --production  # Install only production dependencies
+# Install dependencies (including dev dependencies like @types/node)
+RUN npm install --production
+
+# Install NestJS CLI globally
+RUN npm install -g @nestjs/cli
 
 # Copy the rest of the application files
 COPY . .
