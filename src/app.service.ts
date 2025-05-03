@@ -8,7 +8,11 @@ import { MovieDto, fetchMovie } from './config/movie.dto';
 export class AppService {
   constructor(@InjectModel(Movie.name) private movieModel: Model<Movie>) {}
 
-  async saveMovie(body: MovieDto): Promise<Movie> {
+  async saveMovie(body: MovieDto): Promise<Movie | {}> {
+    const existingMovie = await this.movieModel.findOne({ movie_link: body.movie_link }).exec();    
+    if (existingMovie) {
+      return {};
+    }
     const movie = new this.movieModel(body);
     return movie.save();
   }

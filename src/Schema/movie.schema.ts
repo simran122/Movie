@@ -7,7 +7,7 @@ import { Document } from "mongoose";
     collection:'movies'
 })
 export class Movie{
-    @Prop({required:true})
+    @Prop({required:true,unique:true})
     movie_link:string
 
     @Prop({required:true})
