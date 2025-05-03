@@ -21,6 +21,10 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthMiddleware)
-      .forRoutes('*'); // Protect /movies/*
-  }
+      .forRoutes(
+        { path: 'api/v1/movies', method: RequestMethod.GET },
+        { path: 'api/v1/movies', method: RequestMethod.POST }
+      )
+        
+}
 }
