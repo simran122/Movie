@@ -1,6 +1,6 @@
 import { Controller, Post, Body, Query, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { MovieDto,fetchMovie } from './config/movie.dto';
+import { MovieDto,fetchMovie,JWJDto } from './config/movie.dto';
 
 @Controller('')
 export class AppController {
@@ -19,4 +19,12 @@ export class AppController {
   fetchStatus(){
     return {}
   }
+
+  @Post('/api/v1/savePublicKey')
+  SavePublicKeyResponse(@Body() body:JWJDto) {
+    return this.appService.saveKeyInRedis(body);
+  }
+
+
+  
 }

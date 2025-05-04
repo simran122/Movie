@@ -15,12 +15,31 @@ export class MovieDto {
     
     @IsString()
     thumbnail:string
+
+    @IsString()
+    quality:string
 }
 
 export class fetchMovie {
     @IsOptional()
     @IsString()
     movie_name: string;
+}
+
+export class JWJDto{
+    @IsOptional()
+    @IsString()
+    e: string;
+
+    @IsOptional()
+    @IsString()
+    kty: string;
+
+    @IsOptional()
+    @IsString()
+    n: string;
+
+
 }
 
 

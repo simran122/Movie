@@ -21,6 +21,9 @@ export class Movie{
     
     @Prop({})
     thumbnail:string
+    
+    @Prop({})
+    quality:string
 }
 
 export const MovieSchema = SchemaFactory.createForClass(Movie);

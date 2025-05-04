@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   nestjs-app:
     build:
@@ -11,6 +12,17 @@ services:
       - .env
     networks:
       - nestjs-network
+    depends_on:
+      - redis  # Ensure Redis is started before the NestJS app
+
+  redis:
+    image: redis:latest  # Use the official Redis image
+    container_name: redis
+    ports:
+      - "6379:6379"  # Map port 6379 on host to port 6379 in container
+    networks:
+      - nestjs-network
+    restart: always  # Ensure Redis restarts if it crashes
 
 networks:
   nestjs-network:
